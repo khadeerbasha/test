@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    
+    
+        <record model="ir.ui.view" id="hr_contract_view_form_inherit">
+            <field name="name">hr.contract.view.form</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+            
+                <xpath expr="//page[2]/group/group[@name='salary_and_advantages']" position="after">
+                    <group string="Vacation and Salary Details">
+                            <field name="vacation"/>
+                            <field name="ticket"/>
+                            <field name="ticket_amount"/>
+                            <field name="contract_years"/>
+                            <field name="total_salary" placeholder = "Total Salary Package"/>
+                       
+                    </group>
+                 </xpath>
+
+            </field>
+        </record>
+     
+    </data>
+</odoo>
