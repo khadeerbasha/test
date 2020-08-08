@@ -1,0 +1,46 @@
+from odoo import fields, api, _, models
+from odoo.exceptions import Warning
+import logging
+import math
+from datetime import timedelta
+from werkzeug import url_encode
+
+from odoo import api, fields, models
+from odoo.exceptions import UserError, AccessError, ValidationError
+from openerp.tools import float_compare
+from odoo.tools.translate import _
+from datetime import timedelta
+from werkzeug import url_encode
+
+from odoo import api, fields, models
+from odoo.exceptions import UserError, AccessError, ValidationError
+from openerp.tools import float_compare
+from odoo.tools.translate import _
+from openerp import models, fields, api
+from openerp.exceptions import except_orm, Warning, RedirectWarning
+from datetime import date, datetime, timedelta
+from dateutil.relativedelta import relativedelta
+from openerp import models, fields, api
+from openerp.exceptions import except_orm, Warning, RedirectWarning
+from datetime import date, datetime, timedelta
+from dateutil.relativedelta import relativedelta
+import time
+
+class CrmLead(models.Model):
+    _inherit = 'crm.lead'
+    
+
+    date = fields.Date(string="Date", default=fields.Date.today(), readonly=True)
+    no_days = fields.Integer('No. of Days')
+    date_deadline = fields.Date('Expiry Date', readonly=True)
+    
+    @api.onchange('date', 'no_days','date_deadline')
+    def end_date(self):
+        if self.no_days:
+            d1=fields.Datetime.from_string(self.date)
+            days_no = self.no_days
+            add1 = d1 + relativedelta(days=days_no)
+            #print "ASAASASASSAASAA",add1
+            self.date_deadline=add1
+
+    

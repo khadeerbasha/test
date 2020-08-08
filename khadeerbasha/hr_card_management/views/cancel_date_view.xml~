@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_partner_form_subs_cancel_date" model="ir.ui.view">
+      <field name="name">res.partner.form.cancel_date</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="techsup.ts_res_partner_view_form_customize"/>
+      <field name="arch" type="xml">
+      
+
+        <field name="subscription_end_date" position="after">
+          <field name="subscription_cancel_date" attrs="{'invisible': [('customer', '=', False)]}"/>
+        </field>
+
+      </field>
+
+    </record>
+    </data>
+</odoo>

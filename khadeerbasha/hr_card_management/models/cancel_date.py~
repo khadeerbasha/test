@@ -1,0 +1,10 @@
+from odoo import fields, api, _, models
+from odoo.exceptions import Warning
+
+
+class ResPartner(models.Model):
+    _inherit = 'res.partner'
+
+
+    cancel_date = fields.Date(string='Subscription Cancel Date')
+
