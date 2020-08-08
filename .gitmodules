@@ -1,0 +1,4 @@
+[submodule "khadeerbasha/test"]
+	path = khadeerbasha/test
+	url = git@github.com:khadeerbasha/test.git
+	branch = sedrat
