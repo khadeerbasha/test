@@ -36,7 +36,7 @@ class hr_contract(models.Model):
     ticket_amount = fields.Float('Amount per Ticket', required=True)
     contract_years = fields.Integer('No of Years Contract', required=True)
     total_salary = fields.Float('Total Salary', required=True)
-   
+    gosiwage = fields.Float('Gosi Wage', required=True)
 hr_contract()
 
 
